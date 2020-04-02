@@ -1,0 +1,297 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/*a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+/*a {
+  color: #0366d6;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}*/
+
+.dropdown-submenu {
+    position: relative;
+}
+
+    .dropdown-submenu a::after {
+        transform: rotate(-90deg);
+        position: absolute;
+        right: 6px;
+        top: .8em;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-left: .1rem;
+        margin-right: .1rem;
+    }
+
+
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height 
+  margin-bottom: 60px;*/
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/*tr:hover {
+    background-color: gray;
+}*/
+
+.heading {
+    font-weight: 700;
+    color: #5d4267;
+}
+
+
+.rol {
+    display: block;
+    /*margin-top: 3%;*/
+}
+
+/*.branches {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    
+}*/
+.hdr-primary {
+    text-align:center;
+    background-color: #234e83;
+    color: white;
+}
+
+.card-body{
+    height:450px;
+}
+
+.tab-content {
+    margin-top: 1%;
+}
+#tabla-usuarios #tabla-roles tbody tr {
+    cursor: pointer;
+}
+
+#tabla-usuarios tr:hover {
+    background-color: #cbcbcb;
+}
+
+#tabla-roles tbody tr {
+    cursor: pointer;
+}
+
+#tabla-roles tr:hover {
+    background-color: #cbcbcb;
+}
+
+#tabla-menu tbody tr {
+    cursor: pointer;
+}
+
+#tabla-menu tr:hover {
+    background-color: #cbcbcb;
+}
+
+#tabla-modulos tbody tr {
+    cursor: pointer;
+}
+
+#tabla-modulos tr:hover {
+    background-color: #cbcbcb;
+}
+
+#tabla-submodulos tbody tr {
+    cursor: pointer;
+}
+
+#tabla-submodulos tr:hover {
+    background-color: #cbcbcb;
+}
+
+table {
+    width: 100%;
+    background-color: #ffffff;
+    /*margin-top: 1%;*/
+}
+
+th, td {
+    color: #6a7684;
+    font-size: 16px;
+    border-bottom: 1px solid #cccccc;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+tr:hover {
+    background-color: #dddddd;
+}
+
+.table-headers-s {
+    font-weight: bold;
+    text-align: center;
+}
+
+.sprints {
+    font-weight: bold;
+    /*margin-right: 5%;*/
+    font-size: 18px;
+}
+
+.years {
+    color: black;
+}
+
+.center-info {
+    text-align: center;
+}
+
+.header-tasks {
+    text-align: center;
+    color: #6a7684;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+}
+
+.tareas {
+    text-align: center;
+    border-left: 1px solid #cccccc;
+}
+
+.tareas-vencidas {
+    font-weight: bold;
+    text-align: center;
+    border-left: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+}
+
+.tareas2 {
+    text-align: center;
+    border-right: 1px solid #cccccc;
+}
+
+.tareas-total {
+    font-weight: bold;
+    text-align: center;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+}
+
+.border-top-table-headers {
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+}
+.user{
+    width:50%;
+}
+
+
+.load-ajax:before {
+    content: attr(data-msj);
+    position: fixed;
+    z-index: 1000;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 16px 32px 16px 78px;
+    border-radius: 3px;
+    bottom: 10px;
+    left: 10px;
+    font-weight: 500;
+    background-image: url(http://www.justluxe.com/best-of-luxury/images/bol-loading.gif);
+    background-size: 220px;
+    background-repeat: no-repeat;
+    background-position: -70px center;
+    font-size: 16px;
+    box-shadow: -5px 5px 20px 0px;
+    transition: .3s;
+    opacity: 0.85;
+}
+
+.load-ajax:after {
+    background-image: url(http://www.justluxe.com/best-of-luxury/images/bol-loading.gif);
+    background-position: center center;
+    background-size: 216px;
+    border-radius: 50%;
+    bottom: 18px;
+    content: '';
+    height: 40px;
+    left: 30px;
+    position: absolute;
+    width: 40px;
+    z-index: 1000;
+}
+
+
+.lean-overlay {
+    position: fixed;
+    z-index: 1002;
+    top: -100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 125%;
+    width: 100%;
+    background: #000;
+    display: block;
+    will-change: opacity;
+    opacity: 0.3;
+}
+
+
+
+
+

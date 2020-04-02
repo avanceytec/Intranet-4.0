@@ -1,0 +1,67 @@
+﻿
+@model PermisosViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<h1>Permisos del usuario : </h1>
+<!--caaard-->
+<!-- Card -->
+<div class="card testimonial-card">
+
+    <!-- Background color -->
+
+    <div class="card-header" style="background-color:darkblue">
+        <h3></h3>
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class=" tiles white col-md-12 no-padding" style="">
+                    <div class="tiles white">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3">
+                                <div class="user-profile-pic">
+                                   
+                                </div>
+                                <br><br>
+                            </div>
+                            <div class="col-md-8 user-description-box  col-sm-5">
+                                @foreach (var a in Model.Informacion)
+                                 {
+                                    <h4 class="semi-bold no-margin" id="NomUsuario"> @a.Nombre</h4>
+                                    <h6 class="no-margin" id="PuestoUsu"> Puesto</h6>
+                                    <br>
+                                    <p id="DepUsuario"><i class="fa fa-briefcase"></i> Departamento</p>
+                                    <p id="CorreoUsu"><i class="fa fa-envelope"></i> Correo</p>
+                                    <p id="ExtUsuario"><i class="fa fa-phone"></i> Extension</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            ¿Es Gerente?
+                                        </label>
+                                    </div>
+
+                                    <i class="fa fa-users" aria-hidden="true"> </i> 
+                                    
+                                }
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+        <!-- Card -->
+ </div>
+

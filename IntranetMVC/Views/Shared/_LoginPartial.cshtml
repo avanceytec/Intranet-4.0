@@ -1,0 +1,112 @@
+﻿@using System.Security.Principal
+@using IntranetMVC.Controllers
+    <ul class="navbar-nav">
+        @{
+            List<ConfMenuViewModel> privilegios = await UserController.GetPrivileges(User.Identity.Name);
+            Console.WriteLine(privilegios);
+
+            @*@foreach (var menu in privilegios)
+            {
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        @menu.Nombre
+                    </a>
+                    @if (menu.Modulos.Count > 0)
+                    {
+                        <div class="dropdown-submenu">
+                            @foreach (var modulo in menu.Modulos)
+                            {
+                                <a class="dropdown-item" href="#">@modulo.Nombre</a>
+                                @if (modulo.Submodulos.Count > 0)
+                                {
+                                    @foreach (var submodulo in modulo.Submodulos)
+                                    {
+
+                                        <ul class="dropdown-submenu">
+                                            <li><a tabindex="-1" href="#">@submodulo.Nombre</a></li>
+                                        </ul>
+                                    }
+                                }
+
+                            }
+                        </div>
+                    }
+
+                </li>
+            }*@
+        }
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                        <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+
+
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li class="nav-item">
+                <span class="navbar-text text-dark">Hello @User.Identity.Name</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Sign out</a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a>
+            </li>
+        }
+    </ul>
+
+
+<script>
+    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+        if (!$(this).next().hasClass('show')) {
+        $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
+        }
+        var $subMenu = $(this).next('.dropdown-menu');
+        $subMenu.toggleClass('show');
+
+
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+        $('.dropdown-submenu .show').removeClass('show');
+        });
+
+
+        return false;
+    });
+</script>

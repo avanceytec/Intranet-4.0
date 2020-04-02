@@ -1,0 +1,82 @@
+﻿@model List<ResuladoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Indicadores</h1>
+
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="5" class="header-tasks">Tareas Completadas</td>
+            <td></td>
+            <td></td>
+            <td colspan="3" class="header-tasks">Tareas Asignadas</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="table-headers-s">Tecnico</td>
+            <td class="table-headers-s">Proy.</td>
+            <td class="table-headers-s">Prog.</td>
+            <td class="table-headers-s">Abie.</td>
+            <td class="table-headers-s">Venc.</td>
+            <td class="border-top-table-headers">%</td>
+            <td class="border-top-table-headers">A tiem.</td>
+            <td class="border-top-table-headers">%</td>
+            <td class="tareas-total">Total</td>
+            <td class="table-headers-s">Progr.</td>
+            <td class="table-headers-s">Abie.</td>
+            <td class="tareas-vencidas">Venc.</td>
+            <td class="border-top-table-headers">A tiem.</td>
+            <td class="tareas-total">Total</td>
+            <td class="table-headers-s">Productividad</td>
+            <td class="table-headers-s">Cumplimiento</td>
+        </tr>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td style="font-weight:bold;">@a.Tecnico</td>
+                <td class="center-info">@a.Proyectos</td>
+                <td class="center-info">@a.Total</td>
+                <td class="center-info">@a.Abiertas</td>
+                <td class="center-info">@a.Vencidas</td>
+                <td class="center-info">@a.Porcentaje_Vencidas</td>
+                <td class="center-info">@a.Tiempo</td>
+                <td class="center-info">@a.Porcentaje_Tiempo</td>
+                <td class="tareas2">@a.Cerradas</td>
+                <td class="center-info">@a.Asignadas_Totales</td>
+                <td class="center-info">@a.Asignadas_Abiertas</td>
+                <td class="tareas">@a.Asignadas_Vencidas</td>
+                <td class="center-info">@a.Asignadas_Tiempo</td>
+                <td class="center-info">@a.Asignadas_Cerradas</td>
+                <td class="center-info">@a.Porcentaje_Tiempo</td>
+                <td class="center-info">@a.Porcentaje_Cerradas</td>
+            </tr>
+        }
+        <!--tr *ngFor="let element of lst2">
+        <td style="font-weight:bold;">{{element.Tecnico}}</td>
+        <td class="center-info">{{element.Proyectos}}</td>
+        <td class="center-info">{{element.Total}}</td>
+        <td class="center-info">{{element.Abiertas}}</td>
+        <td class="tareas">{{element.Vencidas}}</td>
+        <td class="center-info" [style.backgroundColor]="element.Vencidas_class">{{element.Porcentaje_Vencidas}} %</td>
+        <td class="center-info">{{element.Tiempo}}</td>
+        <td class="center-info" [style.backgroundColor]="element.Tiempo_class">{{element.Porcentaje_Tiempo}} %</td>
+        <td class="tareas2">{{element.Cerradas}}</td>
+        <td class="center-info">{{element.Asignadas_Totales}}</td>
+        <td class="center-info">{{element.Asignadas_Abiertas}}</td>
+        <td class="tareas">{{element.Asignadas_Vencidas}}</td>
+        <td class="center-info"> {{element.Asignadas_Tiempo}}</td>
+        <td class="tareas2">{{element.Asignadas_Cerradas}}</td>
+        <td class="center-info" [style.backgroundColor]="element.Tiempo_class">{{element.Porcentaje_Tiempo}} %</td>
+        <td class="center-info" [style.backgroundColor]="element.Cerradas_class">{{element.Porcentaje_Cerradas}} %</td>
+    </tr-->
+    </tbody>
+</table>
+

@@ -1,0 +1,172 @@
+﻿@model PermisosViewModel
+@{
+    ViewData["Title"] = "Index";
+    string rol_usuario = "General";
+
+}
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <h3>Permisos de usuario : </h3>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4" align="right">
+         <button class="btn btn-primary" onclick="save()"><i class="fas fa-save"></i> Guardar</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="hdr-primary">
+                <h3>Información</h3>
+            </div>
+            <div class="card-body">
+                <div class="row" style="margin-left:10%">
+                    <div>
+                        <div style="">
+                            <div class="tiles white">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="user-profile-pic">
+                                            <img width="80" height="80" data-src-retina="../../img/logo.png" data-src="../../img/logo.png" src="../../img/logo.png" alt="">
+                                        </div>
+                                        <br><br>
+                                    </div>
+                                    <div class="col-md-9 user-description-box">
+                                        @foreach (var info in Model.Informacion)
+                                        {
+                                            rol_usuario = @info.Nombre;
+                                            <h4 class="semi-bold no-margin" id="NomUsuario"> @info.Nombre</h4>
+                                            <br>
+                                            <p id="DepUsuario"><i class="fa fa-briefcase"></i> @info.Departamento</p>
+                                            <p id="CorreoUsu"><i class="fa fa-envelope"></i> @info.Email</p>
+                                            <p id="ExtUsuario"><i class="fa fa-phone"></i> @info.Extension</p>
+                                            <i class="fa fa-sitemap" aria-hidden="true"></i>
+                                            <!--label class="form-check-label" for="defaultCheck1">
+                                                ¿Es Gerente?
+                                            </label>
+                                            <input id="gerente" name="gerente" type="checkbox" value="@info.Gerente" @(bool.Parse(info.Gerente) ? "checked=\"checked\"" : "") /-->
+                                        }
+                                        <div class="input-group mb-3" style="margin-top: 5%;">
+                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                            <label class="form-check-label" for="defaultCheck1" style="margin-right:3px; margin-left: 3px;">
+                                                Rol de usuario
+                                            </label>
+                                            <select class="custom-select" id="rol-usuario">
+                                                @foreach (var rol in Model.Roles)
+                                                {
+                                                    <option value="@rol.Id" selected="@(rol.Nombre == rol_usuario)">@rol.Nombre</option>
+
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="hdr-primary" ">
+                <h3>Sucursales</h3>
+            </div>
+            <div class="card-body">
+                <div>
+                    @*<select multiple="multiple"
+                            name="favorite_fruits"
+                            id="select-sucursales"
+                            class="multiple-select" style=" color: black">
+                        @foreach (var suc in Model.Sucursales)
+                        {
+                            <option value="@suc.Codigo" selected="@(suc.IsSelected == true)">@suc.Sucursal</option>
+
+                        }
+                    </select>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="hdr-primary">
+                <h3>Personal a cargo</h3>
+            </div>
+            <div class="card-body">
+                <div>
+                    <select multiple="multiple"
+                            name="users"
+                            id="users_select"
+                            class="multiple-select">
+                        @foreach (var personsal_cargo in Model.PersonalCargo)
+                        {
+                            <option value="@personsal_cargo.Id" selected="@(personsal_cargo.IsSelected == true)">@personsal_cargo.Nombre</option>
+
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {            
+            var select = document.getElementById("select-sucursales");
+            multi(select, {
+                enable_search: true
+            });
+
+            var select_users = document.getElementById("users_select");
+            multi(select_users, {
+                enable_search: true
+            });                    
+        });
+
+
+        $('#select-sucursales').on('change', function () {
+            alert(this.value)
+        })
+
+        function save() {
+            
+            //var gerente = $("#gerente").val();
+            //console.log("gerente: ", gerente);
+
+            var rol = $("#rol-usuario").val();
+            console.log("rol: ", rol);
+
+            var sucursales =  $('#select-sucursales').val();
+            console.log("sucursales selec: ", sucursales);
+
+            var personal = $('#users_select').val();
+            console.log("personal selec: ", personal);
+
+           $.ajax({
+                type: "POST",
+               url: '@Url.Action("SaveInformation", "User")',
+               data: {
+                   //EsGerente: gerente,
+                   Rol: rol,
+                   Sucursales: sucursales,
+                   Personal: personal
+               },
+                success: function (result) {
+                    //alert(result);
+                },
+                error: function (err, scnd) {
+                    //alert(err.statusText);
+                }
+            });
+        }
+    </script>
+}
